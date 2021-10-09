@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+  <script type="module" src="./index.js"></script>
+</head>
+
+<body>
+  <div class="battle-screen-holder">
+    <div class="battle-screen">
+      <img class="pokeBackground image-render" src="./assets/Ocean-Day.png">
+      <div class="pokemon-bars-holder">
+        <div class=" field-side top">
+          <!-- Top Bar -->
+          <div class="pokemon-board top overlay">
+            <img src="./assets/pokemon-board/top-bar-left-side.png"
+              class="pBoard-left-side pBoard-component image-render">
+            <div class="pBoard-center pBoard-component">
+              <img src="./assets/pokemon-board/center-top.png" class="top image-render">
+              <div class="poke-info-container">
+                <div class="poke-lvl"></div>
+                <div class="poke-healthbar"></div>
+              </div>
+              <img src="./assets/pokemon-board/center-bottom.png" class="bottom image-render">
+            </div>
+            <img src="./assets/pokemon-board/top-bar-right-side.png"
+              class="pBoard-right-side pBoard-component image-render">
+          </div>
+          <img class="poke-sprite poke-front image-render"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png">
+        </div>
+        <div class="field-side bottom">
+          <img class="poke-sprite poke-back image-render"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/132.png">
+          <!-- Bottom Bar -->
+          <div class="pokemon-board bottom overlay">
+            <img src="./assets/pokemon-board/bottom-bar-left-side.png"
+              class="pBoard-left-side pBoard-component image-render">
+            <div class="pBoard-center pBoard-component">
+              <img src="./assets/pokemon-board/center-top.png" class="bottom image-render">
+              <div class="poke-info-container">
+                <div class="poke-lvl"></div>
+                <div class="poke-healthbar"></div>
+              </div>
+              <img src="./assets/pokemon-board/center-bottom.png" class="bottom image-render">
+            </div>
+            <img src="./assets/pokemon-board/bottom-bar-right-side.png"
+              class="pBoard-right-side pBoard-component image-render">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Message Board -->
+    <div class="message-board overlay">
+      <img class="message-board-left image-render" src="./assets/message-board/message-board-left.png">
+      <div class="message-board-middle">
+        <img class="image-render" src="./assets/message-board/message-board-top.png">
+        <div class="message-board-info"></div>
+        <img class="image-render" src="./assets/message-board/message-board-bottom.png">
+      </div>
+      <img class="message-board-right image-render" src="./assets/message-board/message-board-right.png">
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+:root {
+  --screen-width: 60rem;
+}
+
+body {
+  margin: 0;
+}
+
+.image-render {
+  image-rendering: pixelated;
+}
+
+.battle-screen-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  & .battle-screen {
+    display: flex;
+    justify-content: center;
+    width: var(--screen-width);
+
+    & .pokeBackground {
+      width: 100%;
+      z-index: 0;
+    }
+  }
+}
+
+.poke-sprite {
+  z-index: 5;
+}
+
+.poke-back {
+  transform: translate(-1rem, 3.5rem);
+  width: 40rem;
+}
+
+.overlay {
+  z-index: 10;
+}
+
+.poke-front {
+  width: 20rem;
+  transform: translate(-4rem, 7rem);
+}
+
+.pokemon-bars-holder {
+  position: absolute;
+  width: var(--screen-width);
+  height: calc(var(--screen-width) / 1.78);
+  display: flex;
+  flex-direction: column;
+  align-items: around;
+
+  & .field-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .field-side.bottom {
+    justify-content: right;
+    height: 35%;
+  }
+
+  & .field-side.top {
+    height: 65%;
+  }
+}
+
+.message-board {
+  width: var(--screen-width);
+  display: flex;
+
+  & .message-board-middle {
+    display: flex;
+    flex-direction: column;
+    width: 87.89%;
+
+    & .message-board-info {
+      background-color: white;
+      height: 84%;
+    }
+  }
+
+  & .message-board-left {
+    width: 3.91%;
+  }
+
+  & .message-board-right {
+    width: 8.2%;
+  }
+}
+
+.pBoard-center,
+.poke-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-board {
+  display: flex;
+
+  & .pBoard-component {
+    height: 6rem;
+  }
+
+  & .pBoard-center {
+    background-color: #f7f7f7;
+
+    & .poke-healthbar {
+      height: 2rem;
+    }
+
+    & .poke-lvl {
+      height: 4.2rem;
+    }
+
+    & .poke-info-container {
+      height: 4rem;
+    }
+  }
+}
+
+.pBoard-center .top,
+.pBoard-center .bottom {
+  height: 1rem;
+}
