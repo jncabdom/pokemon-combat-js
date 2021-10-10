@@ -15,6 +15,13 @@
   width: var(--screen-width);
 }
 
+.title {
+  transform: translateY(-10rem);
+  position: absolute;
+  z-index: 15;
+  width: calc(var(--screen-width) - 5%);
+}
+
 .start-button {
   transform: translate(10rem, 30rem);
   font-family: "PokemonClassic";

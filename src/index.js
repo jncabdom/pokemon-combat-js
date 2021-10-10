@@ -172,4 +172,5 @@ getPokemonData();
 document.querySelector(".start-button").addEventListener('click', () => {
   document.querySelector(".screen-cover").style.display = "none";
   document.querySelector(".start-button").style.display = "none";
+  document.querySelector(".title").style.display = "none";
 });
