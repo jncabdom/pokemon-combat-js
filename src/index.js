@@ -130,7 +130,6 @@ const updateMsgBoard = (player) => {
 // Rudimentary game start. 
 //Probably will put into a beginGame() function.
 const beginGame = () => {
-  console.log(allPokemonData[1]);
   setPlayerPoke(playercpu, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
   setPlayerPoke(player1, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
   updateAllData(playercpu);
