@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'PokemonClassic';
+  font-style: normal;
+  src: local('Open Sans'), url(/fonts/PokemonClassic.ttf) format('truetype');
+}
+
 :root {
   --screen-width: 60rem;
 }
@@ -56,6 +62,8 @@ body {
   align-items: around;
 
   & .field-side {
+    font-family: "PokemonClassic";
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -81,6 +89,11 @@ body {
     width: 87.89%;
 
     & .message-board-info {
+      font-family: "PokemonClassic";
+      font-weight: 500;
+      font-size: xx-large;
+      padding-top: 0.5rem;
+      padding-left: 1.5rem;
       background-color: white;
       height: 84%;
     }
@@ -115,7 +128,9 @@ body {
       height: 2rem;
     }
 
-    & .poke-lvl {
+    & .main-info {
+      display: flex;
+      justify-content: space-between;
       height: 4.2rem;
     }
 
