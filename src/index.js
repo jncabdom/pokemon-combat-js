@@ -2,6 +2,29 @@ let POKE_RANGE_MIN = 0;
 let POKE_RANGE_MAX = 150;
 
 const msgBoard = document.querySelector(".message-board-info");
+const backgroundImg = document.querySelector(".pokeBackground");
+
+let backgroundTypes = ["caves", "forest", "grass", "mountain", "ocean", "snow", "indoor"];
+
+let backgroundDirectories = {
+  caves: './backgrounds/Caves/Caves-',
+  forest: './backgrounds/Forest/Forest-',
+  grass: './backgrounds/Grass/Grass-',
+  mountain: './backgrounds/Mountain/Mountain-',
+  ocean: './backgrounds/Ocean/Ocean-',
+  snow: './backgrounds/Snow/Snow-',
+  indoor: './backgrounds/'
+}
+
+let backgroundFiles = {
+  caves: ['1', '2'],
+  forest: ['Afternoon', 'Day', 'Night'],
+  grass: ['Afternoon', 'Day', 'Night'],
+  mountain: ['Afternoon', 'Day', 'Night'],
+  ocean: ['Afternoon', 'Day', 'Night'],
+  snow: ['Afternoon', 'Day', 'Night'],
+  indoor: ['Indoor']
+}
 
 let playercpu = {
   domData: {
@@ -127,9 +150,17 @@ const updateMsgBoard = (player) => {
   msgBoard.innerHTML = `What should ${player.pokeName.toUpperCase()} do?`;
 }
 
+const setBackground = () => {
+  let selectedBackground = backgroundTypes[getRandomNumberInRange(0, backgroundTypes.length - 1)];
+  let selectedFile = getRandomNumberInRange(0, backgroundFiles[selectedBackground].length - 1);
+  backgroundImg.src = backgroundDirectories[selectedBackground] +
+    backgroundFiles[selectedBackground][selectedFile] + '.png';
+}
+
 // Rudimentary game start. 
 //Probably will put into a beginGame() function.
 const beginGame = () => {
+  setBackground();
   setPlayerPoke(playercpu, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
   setPlayerPoke(player1, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
   updateAllData(playercpu);
@@ -138,3 +169,7 @@ const beginGame = () => {
 }
 
 getPokemonData();
+document.querySelector(".start-button").addEventListener('click', () => {
+  document.querySelector(".screen-cover").style.display = "none";
+  document.querySelector(".start-button").style.display = "none";
+});

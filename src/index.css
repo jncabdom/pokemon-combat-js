@@ -8,6 +8,29 @@
   --screen-width: 60rem;
 }
 
+.screen-cover {
+  padding-top: 5rem;
+  position: absolute;
+  z-index: 15;
+  width: var(--screen-width);
+}
+
+.start-button {
+  transform: translate(10rem, 30rem);
+  font-family: "PokemonClassic";
+  font-weight: bold;
+  width: 10rem;
+  height: 10rem;
+  background: linear-gradient(to bottom, red 0%, red 50%, #000 50%, white 50%, white 100%);
+  border: 1rem solid #8d1621;
+  border-radius: 50%;
+  z-index: 20;
+
+  &:hover {
+    background: linear-gradient(to bottom, #b20000 0%, #b20000 50%, #b2b2b2 50%, #b2b2b2 50%, #b2b2b2 100%);
+  }
+}
+
 body {
   margin: 0;
 }
