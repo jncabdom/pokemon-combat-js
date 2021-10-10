@@ -17,6 +17,7 @@ body {
 }
 
 .battle-screen-holder {
+  background-color: #cbd4dc;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,6 +68,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  & .poke-name {
+    text-transform: capitalize;
   }
 
   & .field-side.bottom {

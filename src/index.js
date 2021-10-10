@@ -1,5 +1,9 @@
+let POKE_RANGE_MIN = 0;
+let POKE_RANGE_MAX = 150;
 
-let player1 = {
+const msgBoard = document.querySelector(".message-board-info");
+
+let playercpu = {
   domData: {
     sprite: document.querySelector(".field-side.top .poke-sprite"),
     hpbar: document.querySelector(".field-side.top .poke-healthbar"),
@@ -10,10 +14,12 @@ let player1 = {
   pokeName: "Ditto",
   pokeDef: 1,
   pokeAtk: 1,
-  pokeLvl: 99
+  pokeLvl: 99,
+  pokeSprite: "",
+  isBack: true
 }
 
-let playerCpu = {
+let player1 = {
   domData: {
     sprite: document.querySelector(".field-side.bottom .poke-sprite"),
     hpbar: document.querySelector(".field-side.bottom .poke-healthbar"),
@@ -24,13 +30,15 @@ let playerCpu = {
   pokeName: "Ditto",
   pokeDef: 1,
   pokeAtk: 1,
-  pokeLvl: 99
+  pokeLvl: 99,
+  pokeSprite: "",
+  isBack: false
 }
 
 // Getting pokémon data from PokéAPI and storing it into allPokemonData[]
 
-let pokemonListRange = [1, 151];
-let allPokemonData = [...Array(152).keys()].slice(1);
+let pokemonListRange = [POKE_RANGE_MIN + 1, POKE_RANGE_MAX + 1];
+let allPokemonData = [...Array(POKE_RANGE_MAX + 2).keys()].slice(1);
 
 /**
  * @description Gets all pokémon data from PokeAPI, storing it into
@@ -72,6 +80,8 @@ const getRandomNumberInRange = (min, max) => {
 const updateAllData = (player) => {
   updateName(player);
   updateLvl(player);
+  updateHealth(player);
+  updateSprite(player);
 }
 
 /**
@@ -98,8 +108,34 @@ const updateHealth = (player) => {
   // Todo. Healthbar implementation still undone
 }
 
+const updateSprite = (player) => {
+  player.domData.sprite.src = player.pokeSprite;
+}
+
+const setPlayerPoke = (player, index) => {
+  let newPoke = allPokemonData[index];
+  player.pokeSprite = player.isBack ?
+    newPoke.sprites.front_default :
+    newPoke.sprites.back_default;
+  player.pokeName = newPoke.name;
+  player.pokeHealth = newPoke.stats[0].base_stat;
+  player.pokeAtk = newPoke.stats[1].base_stat;
+  player.pokeDef =  newPoke.stats[2].base_stat;
+}
+
+const updateMsgBoard = (player) => {
+  msgBoard.innerHTML = `What should ${player.pokeName.toUpperCase()} do?`;
+}
+
 // Rudimentary game start. 
 //Probably will put into a beginGame() function.
+const beginGame = () => {
+  console.log(allPokemonData[1]);
+  setPlayerPoke(playercpu, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
+  setPlayerPoke(player1, getRandomNumberInRange(POKE_RANGE_MIN, POKE_RANGE_MAX));
+  updateAllData(playercpu);
+  updateAllData(player1);
+  updateMsgBoard(player1);
+}
+
 getPokemonData();
-updateAllData(player1);
-updateAllData(playerCpu);
